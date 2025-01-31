@@ -11,10 +11,10 @@ public class WebConfig implements WebMvcConfigurer {
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
-			//allowedOrigins("https://akay06.github.io")
+			//allowedOrigins("http://localhost:8000")
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**").allowedOrigins("http://localhost:8000")
+				registry.addMapping("/**").allowedOrigins("https://akay06.github.io")
 						.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS").allowedHeaders("*")
 						.allowCredentials(true).maxAge(3600); // Cache preflight response for 1 hour
 			}

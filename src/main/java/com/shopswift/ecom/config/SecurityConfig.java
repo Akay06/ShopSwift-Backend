@@ -13,8 +13,9 @@ public class SecurityConfig {
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.cors().and().csrf(csrf -> csrf.disable()) // Disable CSRF
-				.authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated() // All requests require
-																							// authentication
+				.authorizeHttpRequests(authorize -> authorize.requestMatchers("/actuator/health").permitAll()
+						.anyRequest().authenticated() // All requests require
+				// authentication
 				).httpBasic(); // Enable basic authentication
 
 		return http.build();
