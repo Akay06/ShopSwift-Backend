@@ -32,8 +32,9 @@ Backend built using **Spring Boot** for the **ShopSwift** E-Commerce website. Th
 ---
 
 ## 📜 License
-This project is open-source and available under the MIT License.   
-📧 Have Questions? Feel free to open an issue or contact me! 🚀
+This project is open-source and available under the MIT License.  
+
+📧 Have Questions? Feel free to open an [issue](https://github.com/Akay06/ShopSwift-Backend/issues) or contact me! 🚀
 
 ---
 
