@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import com.shopswift.ecom.model.SellProduct;
 import com.shopswift.ecom.model.SellProductRequest;
 import com.shopswift.ecom.model.SellProductResponse;
-import com.shopswift.ecom.model.User;
+import com.shopswift.ecom.model.AppUser;
 import com.shopswift.ecom.repository.SellProductRepository;
 import com.shopswift.ecom.repository.UserRepository;
 
@@ -31,7 +31,7 @@ public class SellProductServiceImpl implements SellProductService {
 	@Override
 	public ResponseEntity<?> sellProduct(SellProductRequest request) {
 
-		Optional<User> user = userRepository.findOneByUserName(request.getUserName());
+		Optional<AppUser> user = userRepository.findOneByUserName(request.getUserName());
 
 		if (!user.isPresent())
 			return ResponseEntity.notFound().build();
@@ -55,10 +55,10 @@ public class SellProductServiceImpl implements SellProductService {
 	@Override
 	public List<SellProductResponse> getProducts(String userName) throws Exception {
 
-		Optional<User> user = userRepository.findOneByUserName(userName);
+		Optional<AppUser> user = userRepository.findOneByUserName(userName);
 
 		if (!user.isPresent())
-			throw new Exception("Invalid User");
+			throw new Exception("Invalid AppUser");
 
 		List<SellProduct> sellProducts = sellProductRepository.findByUserUserNameOrderByPlacedAtDesc(userName);
 
@@ -84,7 +84,7 @@ public class SellProductServiceImpl implements SellProductService {
 	@Override
 	public ResponseEntity<?> sellEditProduct(SellProductRequest request) {
 
-		Optional<User> user = userRepository.findOneByUserName(request.getUserName());
+		Optional<AppUser> user = userRepository.findOneByUserName(request.getUserName());
 
 		if (!user.isPresent())
 			return ResponseEntity.notFound().build();
@@ -110,7 +110,7 @@ public class SellProductServiceImpl implements SellProductService {
 
 	@Override
 	public ResponseEntity<?> deleteProduct(int id, String userName) {
-		Optional<User> user = userRepository.findOneByUserName(userName);
+		Optional<AppUser> user = userRepository.findOneByUserName(userName);
 
 		if (!user.isPresent())
 			return ResponseEntity.notFound().build();

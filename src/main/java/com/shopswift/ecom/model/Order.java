@@ -29,7 +29,7 @@ public class Order {
 	private int invoiceNo;
 
 	@OneToOne
-	private User user;
+	private AppUser user;
 
 	@OneToOne
 	private Product product;

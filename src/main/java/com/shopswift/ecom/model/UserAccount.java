@@ -30,9 +30,9 @@ public class UserAccount {
 	private String password;
 
 	@OneToOne
-	private User user;
+	private AppUser user;
 
-	public UserAccount(String userName, String password, User user) {
+	public UserAccount(String userName, String password, AppUser user) {
 		this.userName = userName;
 		this.password = password;
 		this.user = user;

@@ -5,10 +5,10 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.shopswift.ecom.model.User;
+import com.shopswift.ecom.model.AppUser;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Integer> {
+public interface UserRepository extends JpaRepository<AppUser, Integer> {
 
-	Optional<User> findOneByUserName(String userName);
+	Optional<AppUser> findOneByUserName(String userName);
 }

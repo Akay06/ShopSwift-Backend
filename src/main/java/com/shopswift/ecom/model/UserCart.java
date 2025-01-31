@@ -28,7 +28,7 @@ public class UserCart {
 	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "user_id")
-	private User user;
+	private AppUser user;
 
 	@JsonBackReference
 	@ManyToOne
@@ -38,7 +38,7 @@ public class UserCart {
 	@Column
 	private int productCount;
 
-	public UserCart(User user, Product product, int productCount) {
+	public UserCart(AppUser user, Product product, int productCount) {
 		this.user = user;
 		this.product = product;
 		this.productCount = productCount;

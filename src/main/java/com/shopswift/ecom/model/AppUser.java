@@ -13,9 +13,9 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "user")
+@Table(name = "app_user")
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class User {
+public class AppUser {
 
 	@Id
 	@Column
@@ -37,7 +37,7 @@ public class User {
 	@Column
 	private String address;
 
-	public User(String userName, String email, String mobile) {
+	public AppUser(String userName, String email, String mobile) {
 		this.userName = userName;
 		this.name = userName;
 		this.mobile = mobile;
@@ -45,7 +45,7 @@ public class User {
 		this.address = "";
 	}
 
-	public User() {
+	public AppUser() {
 
 	}
 

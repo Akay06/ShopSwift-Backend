@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.shopswift.ecom.model.AuthenticationRequest;
 import com.shopswift.ecom.model.SignupRequest;
-import com.shopswift.ecom.model.User;
+import com.shopswift.ecom.model.AppUser;
 import com.shopswift.ecom.model.UserAccount;
 import com.shopswift.ecom.repository.UserAccountRepository;
 import com.shopswift.ecom.repository.UserRepository;
@@ -51,7 +51,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 				return ResponseEntity.ok("Username taken! Please choose another");
 			}
 
-			User user = new User(request.getUserName(), request.getEmail(), request.getMobile());
+			AppUser user = new AppUser(request.getUserName(), request.getEmail(), request.getMobile());
 			user = userRepository.save(user);
 
 			UserAccount userAccount = new UserAccount(request.getUserName(), request.getPassword(), user);

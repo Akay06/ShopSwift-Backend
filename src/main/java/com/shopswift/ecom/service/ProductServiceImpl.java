@@ -19,7 +19,7 @@ import com.shopswift.ecom.model.Order;
 import com.shopswift.ecom.model.OrderProduct;
 import com.shopswift.ecom.model.OrderResponse;
 import com.shopswift.ecom.model.Product;
-import com.shopswift.ecom.model.User;
+import com.shopswift.ecom.model.AppUser;
 import com.shopswift.ecom.model.UserCart;
 import com.shopswift.ecom.repository.OrderRepository;
 import com.shopswift.ecom.repository.ProductRepository;
@@ -69,7 +69,7 @@ public class ProductServiceImpl implements ProductService {
 		if (!product.isPresent())
 			throw new Exception("Invalid Product Id");
 
-		Optional<User> user = userRepository.findOneByUserName(request.getUserName());
+		Optional<AppUser> user = userRepository.findOneByUserName(request.getUserName());
 
 		if (!user.isPresent())
 			throw new Exception("Invalid user name");
@@ -161,7 +161,7 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public ResponseEntity<?> placeOrder(String userName) {
 
-		Optional<User> user = userRepository.findOneByUserName(userName);
+		Optional<AppUser> user = userRepository.findOneByUserName(userName);
 
 		if (!user.isPresent())
 			ResponseEntity.notFound().build();
@@ -204,7 +204,7 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<OrderResponse> getOrders(String userName) throws Exception {
 
-		Optional<User> user = userRepository.findOneByUserName(userName);
+		Optional<AppUser> user = userRepository.findOneByUserName(userName);
 
 		if (!user.isPresent())
 			throw new Exception("Invalid user name");

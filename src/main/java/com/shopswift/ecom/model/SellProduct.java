@@ -41,7 +41,7 @@ public class SellProduct {
 	private String mobile;
 
 	@OneToOne
-	private User user;
+	private AppUser user;
 
 	@Column
 	private LocalDateTime placedAt;

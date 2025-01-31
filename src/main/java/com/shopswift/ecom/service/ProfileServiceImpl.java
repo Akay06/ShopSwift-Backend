@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.shopswift.ecom.model.ProfileRequest;
 import com.shopswift.ecom.model.ProfileResponse;
-import com.shopswift.ecom.model.User;
+import com.shopswift.ecom.model.AppUser;
 import com.shopswift.ecom.repository.UserRepository;
 
 import jakarta.transaction.Transactional;
@@ -23,10 +23,10 @@ public class ProfileServiceImpl implements ProfileService {
 	@Override
 	public ProfileResponse getProfile(String userName) throws Exception {
 
-		Optional<User> user = userRepository.findOneByUserName(userName);
+		Optional<AppUser> user = userRepository.findOneByUserName(userName);
 
 		if (!user.isPresent()) {
-			throw new Exception("User profile not found");
+			throw new Exception("AppUser profile not found");
 		}
 
 		ProfileResponse response = new ProfileResponse();
@@ -41,7 +41,7 @@ public class ProfileServiceImpl implements ProfileService {
 	@Override
 	public ResponseEntity<?> editProfile(ProfileRequest request, String userName) {
 
-		Optional<User> user = userRepository.findOneByUserName(userName);
+		Optional<AppUser> user = userRepository.findOneByUserName(userName);
 
 		if (!user.isPresent()) {
 			ResponseEntity.notFound().build();
