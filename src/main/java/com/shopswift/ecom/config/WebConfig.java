@@ -14,7 +14,7 @@ public class WebConfig implements WebMvcConfigurer {
 			//allowedOrigins("http://localhost:8000")
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**").allowedOrigins("https://akay06.github.io")
+				registry.addMapping("/**").allowedOrigins("https://shopswift.akay06.com")
 						.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS").allowedHeaders("*")
 						.allowCredentials(true).maxAge(3600); // Cache preflight response for 1 hour
 			}
