@@ -7,7 +7,8 @@ Backend built using **Spring Boot** for the **ShopSwift** E-Commerce website. Th
 ## 🛠️ Requirements  
 - **Java 17+**  
 - **Maven 3.6+** (for dependency management and build)  
-- **Spring Boot 3.x**  
+- **Spring Boot 3.x**
+- **PostgreSQL**
 
 ---
 
